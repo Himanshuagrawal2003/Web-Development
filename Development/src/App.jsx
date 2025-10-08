@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import Hello from "./Hello"
+import Lottery from "./Lottery"
 import LudoBoard from './LudoBoard'
 import TodoList from './TodoList'
 
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-    <TodoList />
+    <Lottery n={3} winningSum ={15} />
     </>
   )
 }
