@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import Lottery from "./Lottery"
 import LudoBoard from './LudoBoard'
 import TodoList from './TodoList'
+import Form from './Form'
 
 import './App.css'
 
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <>
-    <Lottery n={3} winningSum ={15} />
+    <Form />
     </>
   )
 }
