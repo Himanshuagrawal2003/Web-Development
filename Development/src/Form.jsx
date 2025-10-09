@@ -9,7 +9,8 @@ export default function Form(){
 
     return (
     <form>
-        <input type="text" placeholder="Enter Your Name" onChange={handleNameChange} value={formName} />
+        <label htmlFor='username'>Full Name  </label>
+        <input type="text" id='username' placeholder="Enter Your Name" onChange={handleNameChange} value={formName} />
         <button>Submit</button>
     </form>
     );
