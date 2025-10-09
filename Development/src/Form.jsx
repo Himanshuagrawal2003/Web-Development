@@ -9,7 +9,7 @@ export default function Form(){
 
     return (
     <form>
-        <label htmlFor='username'>Full Name  </label>
+        <label htmlFor='username'>Full Name  </label>                    {/* in react use htmlFor for connect input*/}
         <input type="text" id='username' placeholder="Enter Your Name" onChange={handleNameChange} value={formName} />
         <button>Submit</button>
     </form>
