@@ -1,0 +1,61 @@
+/* SearchBox.css */
+
+.SearchBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background: linear-gradient(135deg, #a2d9ff, #ffffff);
+  font-family: "Poppins", sans-serif;
+}
+
+.SearchBox h2 {
+  margin-bottom: 1.5rem;
+  color: #1e3a8a;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.SearchBox form {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.SearchBox .MuiTextField-root {
+  width: 250px;
+}
+
+.SearchBox button {
+  background-color: #1e3a8a !important;
+  color: #fff !important;
+  text-transform: none !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.SearchBox button:hover {
+  background-color: #3b82f6 !important;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .SearchBox form {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .SearchBox h2 {
+    font-size: 1.5rem;
+  }
+
+  .SearchBox .MuiTextField-root {
+    width: 200px;
+  }
+}
