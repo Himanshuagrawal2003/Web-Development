@@ -1,21 +1,37 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
-export default function Counter(){
-    let [count, setCount] = useState(0);
+export default function Counter() {
+  let [countX, setCountX] = useState(0);
+  let [countY, setCountY] = useState(0);
 
-    let incCounter = ()=>{
-        setCount((currCount) => currCount +1 );
-    };
+  let incCounterX = () => {
+    setCountX((currCount) => currCount + 1);
+  };
 
-    useEffect(function printSomething(){           //useEffect  for render somthing or (function) on second render time. 
-        console.log("Hi, I rendered");
-    });
+  let incCounterY = () => {
+    setCountY((currCount) => currCount + 1);
+  };
 
-    return(
-        <div>
-            <h2>Counter</h2>
-            <p>Counter Is:  {count}</p>
-            <button onClick={incCounter}>Increase Counter</button>
-        </div>
-    );
-};
+  useEffect(
+    function printSomething() {
+      //useEffect  for render somthing or (function) on second render time.
+      console.log("Hi, I rendered");
+    },
+    [countX] // useEffect Dependent on CountX
+  );
+
+  return (
+    <div>
+      <div>
+        <h2>CounterX</h2>
+        <p>Counter Is: {countX}</p>
+        <button onClick={incCounterX}>Increase Counter</button>
+      </div>
+      <div>
+        <h2>CounterY</h2>
+        <p>Counter Is: {countY}</p>
+        <button onClick={incCounterY}>Increase Counter</button>
+      </div>
+    </div>
+  );
+}
