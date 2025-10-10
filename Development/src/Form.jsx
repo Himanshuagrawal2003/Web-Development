@@ -1,25 +1,25 @@
 import { useState } from "react";
 
 export default function Form() {
-  let [formData, setFormData] = useState({
-    fullName:"",
-    username:"",
-    password:""
+  let [formData, setFormData] = useState({           // useState Define as a object
+    fullName: "",
+    username: "",
+    password: "",
   });
 
   let handleInputChange = (event) => {
-    setFormData ((currData) => {
-      return {...currData, [event.target.name]:event.target.value};
+    setFormData((currData) => {
+      return { ...currData, [event.target.name]: event.target.value };        //currDAta is Spread And  target.name = fullName 
     });
   };
 
-  let handleSubmit = (event) =>{
+  let handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
     setFormData({
-      fullName:"",
-      username:"",
-      password:""
+      fullName: "",
+      username: "",
+      password: "",
     });
   };
 
@@ -32,10 +32,11 @@ export default function Form() {
         id="fullname"
         placeholder="Enter Your Full Name"
         onChange={handleInputChange}
-        value={formData.fullName}
-        name="fullName"
+        value={formData.fullName}           
+        name="fullName"               // check here by target.name
       />
-      <br></br><br></br>
+      <br></br>
+      <br></br>
       <label htmlFor="username">User Name </label>{" "}
       {/* in react use htmlFor for connect input*/}
       <input
@@ -44,10 +45,11 @@ export default function Form() {
         placeholder="Enter Your UserName"
         onChange={handleInputChange}
         value={formData.username}
-        name="username"
+        name="username"            // check here by target.name
       />
-      <br></br><br></br>
-       <label htmlFor="password">PassWord </label>{" "}
+      <br></br>
+      <br></br>
+      <label htmlFor="password">PassWord </label>{" "}
       {/* in react use htmlFor for connect input*/}
       <input
         type="password"
@@ -55,9 +57,10 @@ export default function Form() {
         placeholder="Password"
         onChange={handleInputChange}
         value={formData.password}
-        name="password"
+        name="password"                     // check here by target.name
       />
-      <br></br><br></br>
+      <br></br>
+      <br></br>
       <button>Submit</button>
     </form>
   );
