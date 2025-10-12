@@ -6,6 +6,15 @@ import { useState } from "react";
 export default function SearchBox() {
   let [city, setCity] = useState("");
 
+  const API_URL = "http://api.weatherapi.com/v1/current.json";
+  //const API_KEY="bed309670cab4f18b93122906251110";
+  
+  let weatherInfo = async () =>{
+    let response =  await fetch(`${API_URL}?Key=${API_KEY}&q=${city}&aqi=no`);
+    let josnResponse = await response.json();
+    console.log(josnResponse);
+  };
+
   let handleChange = (event) => {
     setCity(event.target.value);
   };
@@ -14,6 +23,7 @@ export default function SearchBox() {
     event.preventDefault();
     console.log(city);
     setCity("");
+    weatherInfo();
   };
 
   return (
