@@ -14,13 +14,12 @@ export default function SearchBox() {
       `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
     );
     let josnResponse = await response.json();
-    console.log(josnResponse);
     let result = {
       temp: josnResponse.main.temp,
       tempMin: josnResponse.main.temp_min,
       tempMax: josnResponse.main.temp_max,
       humidity: josnResponse.main.humidity,
-      feelsLike: josnResponse.main.feelsLike,
+      feelsLike: josnResponse.main.feels_like,
       weather: josnResponse.weather[0].description,
     };
     console.log(result);
