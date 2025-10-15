@@ -1,61 +1,86 @@
 /* SearchBox.css */
 
+/* Center everything on the page */
 .SearchBox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 70vh;
-  background: linear-gradient(135deg, #a2d9ff, #ffffff);
-  font-family: "Poppins", sans-serif;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  font-family: 'Arial', sans-serif;
 }
 
+/* Heading styling */
 .SearchBox h2 {
-  margin-bottom: 1.5rem;
-  color: #1e3a8a;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Form layout */
 .SearchBox form {
   display: flex;
-  gap: 1rem;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
 }
 
-.SearchBox .MuiTextField-root {
-  width: 250px;
+/* MUI TextField overrides */
+.SearchBox input {
+  padding: 8px;
+  border-radius: 5px;
 }
 
+/* Button styling */
 .SearchBox button {
-  background-color: #1e3a8a !important;
-  color: #fff !important;
-  text-transform: none !important;
-  padding: 8px 20px !important;
-  border-radius: 8px !important;
-  font-weight: 500 !important;
-  transition: all 0.3s ease !important;
+  padding: 10px;
+  background-color: #6a11cb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .SearchBox button:hover {
-  background-color: #3b82f6 !important;
+  background-color: #2575fc;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 600px) {
-  .SearchBox form {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
+/* InfoBox container */
+.InfoBox {
+  margin-top: 30px;
+  width: 320px;
+}
 
-  .SearchBox h2 {
-    font-size: 1.5rem;
-  }
+/* Glass-effect card */
+.weather-card {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
 
-  .SearchBox .MuiTextField-root {
-    width: 200px;
-  }
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+/* CardMedia image */
+.weather-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Typography inside card */
+.weather-card p {
+  margin: 5px 0;
+  color: #160303;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }

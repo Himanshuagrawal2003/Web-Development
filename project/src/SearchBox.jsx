@@ -2,6 +2,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./SearchBox.css";
 import { useState } from "react";
+import InfoBox from "./InfoBox";
 
 export default function SearchBox() {
   let [city, setCity] = useState("");
@@ -15,6 +16,7 @@ export default function SearchBox() {
     );
     let josnResponse = await response.json();
     let result = {
+      city: city,
       temp: josnResponse.main.temp,
       tempMin: josnResponse.main.temp_min,
       tempMax: josnResponse.main.temp_max,
@@ -52,6 +54,7 @@ export default function SearchBox() {
           Search
         </Button>
       </form>
+      <InfoBox />
     </div>
   );
 }
