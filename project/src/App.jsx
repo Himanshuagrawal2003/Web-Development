@@ -1,12 +1,12 @@
 import { useState } from "react";
-import SearchBox from "./SearchBox";
+import WeatherApp from "./WeatherApp";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <SearchBox />
+      <WeatherApp />
     </>
   );
 }
