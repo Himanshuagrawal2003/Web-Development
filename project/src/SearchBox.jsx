@@ -53,7 +53,6 @@ export default function SearchBox() {
           Search
         </Button>
       </form>
-      <InfoBox />
     </div>
   );
 }
