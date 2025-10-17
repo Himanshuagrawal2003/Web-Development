@@ -3,19 +3,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-export default function InfoBox() {
+export default function InfoBox({info}) {
   const IMG_URL =
     "https://tse1.mm.bing.net/th/id/OIP.rXsszHl2cy4fkGnXgNy4lwHaEK?pid=Api&P=0&h=180";
-
-  let info = {
-    city: "Indore",
-    feelsLike: 24.4,
-    humidity: 73,
-    temp: 21.1,
-    tempMax: 38.1,
-    tempMin: 21.1,
-    weather: "Haze",
-  };
 
   return (
     <div className="InfoBox">

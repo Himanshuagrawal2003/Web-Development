@@ -2,13 +2,12 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "./SearchBox.css";
 import { useState } from "react";
-import InfoBox from "./InfoBox";
 
-export default function SearchBox() {
+export default function SearchBox({updateInfo}) {
   let [city, setCity] = useState("");
 
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-  //const API_KEY = "7dff6de9b8f96f12153d47964c3fb7e1";
+  const API_KEY = "7dff6de9b8f96f12153d47964c3fb7e1";
 
   let weatherInfo = async () => {
     let response = await fetch(
@@ -25,17 +24,19 @@ export default function SearchBox() {
       weather: josnResponse.weather[0].description,
     };
     console.log(result);
+    return result;
   };
 
   let handleChange = (event) => {
     setCity(event.target.value);
   };
 
-  let handleSubmit = (event) => {
+  let handleSubmit = async (event) => {
     event.preventDefault();
     console.log(city);
     setCity("");
-    weatherInfo();
+    let  newInfo = await weatherInfo();
+    updateInfo(newInfo);
   };
 
   return (
