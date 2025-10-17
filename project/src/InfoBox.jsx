@@ -3,14 +3,22 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-export default function InfoBox({info}) {
-  const IMG_URL =
-    "https://tse1.mm.bing.net/th/id/OIP.rXsszHl2cy4fkGnXgNy4lwHaEK?pid=Api&P=0&h=180";
+export default function InfoBox({ info }) {
+  const HOT_URL = "https://wallpaperaccess.com/full/1252278.jpg";
+  const COLD_URL =
+    "https://static.vecteezy.com/system/resources/thumbnails/036/600/350/small_2x/ai-generated-magic-winter-background-with-copy-space-free-photo.jpg";
+  const RAIN_URL =
+    "https://www.hdwallpapers.in/download/falling_rain_drops_on_white_umbrella_hd_rain-HD.jpg";
 
   return (
     <div className="InfoBox">
       <Card className="weather-card">
-        <CardMedia component="img" image={IMG_URL} alt="Weather Image" />
+        <CardMedia
+          component="img"
+          image={
+            info.humidity > 80 ? RAIN_URL : info.temp > 15 ? HOT_URL : COLD_URL
+          }
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {info.city}

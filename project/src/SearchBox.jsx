@@ -3,40 +3,51 @@ import Button from "@mui/material/Button";
 import "./SearchBox.css";
 import { useState } from "react";
 
-export default function SearchBox({updateInfo}) {
+export default function SearchBox({ updateInfo }) {
   let [city, setCity] = useState("");
+  let [error, setError] = useState(false);
 
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
   const API_KEY = "7dff6de9b8f96f12153d47964c3fb7e1";
 
   let weatherInfo = async () => {
-    let response = await fetch(
-      `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
-    );
-    let josnResponse = await response.json();
-    let result = {
-      city: city,
-      temp: josnResponse.main.temp,
-      tempMin: josnResponse.main.temp_min,
-      tempMax: josnResponse.main.temp_max,
-      humidity: josnResponse.main.humidity,
-      feelsLike: josnResponse.main.feels_like,
-      weather: josnResponse.weather[0].description,
-    };
-    console.log(result);
-    return result;
+    try {
+      let response = await fetch(
+        `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`
+      );
+      let jsonResponse = await response.json();
+      let result = {
+        city: city,
+        temp: jsonResponse.main.temp,
+        tempMin: jsonResponse.main.temp_min,
+        tempMax: jsonResponse.main.temp_max,
+        humidity: jsonResponse.main.humidity,
+        feelsLike: jsonResponse.main.feels_like,
+        weather: jsonResponse.weather[0].description,
+      };
+      console.log(result);
+      return result;
+    } catch (err) {
+      throw err;
+    }
   };
 
   let handleChange = (event) => {
     setCity(event.target.value);
+    if (error) setError(false);
   };
 
   let handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(city);
-    setCity("");
-    let  newInfo = await weatherInfo();
-    updateInfo(newInfo);
+    try {
+      console.log(city);
+      setCity("");
+      setError(false);
+      let newInfo = await weatherInfo();
+      updateInfo(newInfo);
+    } catch {
+      setError(true);
+    }
   };
 
   return (
@@ -50,9 +61,10 @@ export default function SearchBox({updateInfo}) {
           value={city}
           onChange={handleChange}
         />
-        <Button onSubmit={handleSubmit} variant="contained" type="Submit">
+        <Button variant="contained" type="Submit">
           Search
         </Button>
+        {error && <p style={{ color: "red" }}>❌ No Such Place Exists</p>}
       </form>
     </div>
   );
